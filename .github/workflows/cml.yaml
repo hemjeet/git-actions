@@ -28,4 +28,5 @@ jobs:
         run: |
           # Post reports as comments in GitHub PRs
           echo " ##Model Metrics ## (here)" 
-          cat metrics.txt 
+          touch report.md
+          cat metrics.txt >> report.md
