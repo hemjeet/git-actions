@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import *
 import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
+from joblib import *
 
 #---------------create data-----------------#
 X,y=make_classification(n_classes=2,n_samples=15000,n_features=5)
@@ -23,6 +24,8 @@ x_test=scale.transform(x_test)
 rf=RandomForestClassifier(max_depth=4)
 rf.fit(x_train,y_train)
 
+#---------------save model----------#
+dump(rf,'rf_model.pkl')
 #report train score
 train_score=rf.score(x_train,y_train)*100
 
